@@ -1,0 +1,229 @@
+/*CSS Reset*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    color:#000;
+}
+*::after,*::before{
+    box-sizing: border-box;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*Style*/
+
+html,body{
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+}
+
+header,main{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.logo-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 238px;
+    overflow: hidden;
+}
+.logo{
+    display: inline-block;
+    height: 92px;
+    max-width: 320px;
+    margin-bottom: 20px;
+    font: 900 55px "Comic Sans MS";
+    color: white;
+    text-shadow: 0 0 20px #fdec84,
+            10px -10px 30px #ffae35,
+            20px -20px 40px #ec760c,
+            -20px -60px 50px #cd4607,
+            0px -80px 60px #973717,
+            10px -40px 70px #451b0e;
+}
+
+.search-form{
+    display: flex;
+    justify-content: center;
+    padding: 5px 20px;
+}
+.search{
+    display: inline-block;
+    width: 100%;
+    height: 44px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    padding: 0 50px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    background: url('./images/search.png') 20px center / 20px 20px no-repeat white;
+    color: rgb(117, 117, 117);
+}
+.search-form>button{
+    display: inline-block;
+    height: 44px;
+    border-radius: 5px;
+    padding: 0 25px;
+    background: black;
+    color: #fff;
+    word-break: keep-all;
+    box-shadow: 0 2px 6px 0 rgba(32, 33, 36, .28);
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 22px;
+    overflow: hidden;
+}
+.site-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-right: -10px;
+}
+.site-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.site-item:hover{
+    background-color:rgba(32, 33, 36, 0.06);
+}
+.site-item:hover .list-more{
+    opacity: 1;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgb(229, 231, 232);
+    font-size: 30px;
+    font-weight: 500;
+}
+.add-icon{
+    background: url('./images/add.png') center / 20px 20px no-repeat rgb(229, 231, 232);
+}
+.title{
+    height:35px;
+    line-height: 35px;
+}
+.list-more{
+    position: absolute;
+    top:0;
+    right: 0;
+    display: block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: url('./images/list_more.png') 0 center / 30px 30px no-repeat; 
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+/*弹框处理*/
+.dlg-container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255, 0.8);
+}
+.msg-dlg{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    max-width: 380px;
+    height: 260px;
+    padding: 10px 20px;
+    border: 1px solid rgb(199, 187, 187);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(var(--GG800-rgb), .3), 0 4px 8px 3px rgba(var(--GG800-rgb), .15);
+    background: #fff;
+}
+.dlg-form{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+.dlg-form label{
+    padding: 10px 0;
+    font-size: 10px;
+}
+.dlg-form input{
+    display: inline-block;
+    height: 34px;
+    background: rgb(241, 243, 244);
+    border-radius: 4px;
+    padding: 0 20px;
+    caret-color:rgb(26, 115, 232);;
+}
+.button-group{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.button-group button{
+    border: 1px solid rgb(218, 220, 224);;
+    padding: 5px 20px;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.button-group .finish-btn{
+    background: rgb(241, 243, 244);
+}
+.button-group .cancel-btn{
+    color: rgb(26, 115, 232);
+}
+.button-group .cancel-btn:hover{
+    background:rgb(210, 227, 252);
+    border-color: rgb(210, 227, 252);
+}
+.hide-dlg{
+    display: none;
+}
+
+/*手机适配*/
+@media (max-width: 500px){
+    .site-list{
+        justify-content: center;
+        margin:0;
+    }
+    .list-more{
+        opacity: 1;
+    }
+}
